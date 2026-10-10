@@ -1,0 +1,114 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  transition: background-color var(--transition-normal), padding var(--transition-normal);
+  padding: var(--space-4) 0;
+}
+
+.header.scrolled {
+  background-color: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(10px);
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.headerContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--text-primary);
+  text-transform: uppercase;
+}
+
+.nav {
+  display: flex;
+  gap: var(--space-6);
+}
+
+.navLink {
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-secondary);
+  transition: color var(--transition-fast);
+}
+
+.navLink:hover {
+  color: var(--text-primary);
+}
+
+.actions {
+  display: flex;
+  gap: var(--space-4);
+  align-items: center;
+}
+
+.actionBtn, .cartBtn {
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  position: relative;
+  transition: opacity var(--transition-fast);
+}
+
+.actionBtn:hover, .cartBtn:hover {
+  opacity: 0.7;
+}
+
+.cartBadge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: var(--accent-red);
+  color: white;
+  font-size: 0.65rem;
+  font-weight: 700;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobileMenuBtn {
+  display: none;
+  color: var(--text-primary);
+}
+
+@media (max-width: 768px) {
+  .mobileMenuBtn {
+    display: block;
+  }
+  
+  .nav {
+    position: fixed;
+    top: 70px;
+    left: -100%;
+    width: 100%;
+    height: calc(100vh - 70px);
+    background-color: var(--bg-primary);
+    flex-direction: column;
+    padding: var(--space-8) var(--space-4);
+    gap: var(--space-6);
+    transition: left var(--transition-normal);
+  }
+
+  .nav.navOpen {
+    left: 0;
+  }
+
+  .navLink {
+    font-size: 1.25rem;
+  }
+}
